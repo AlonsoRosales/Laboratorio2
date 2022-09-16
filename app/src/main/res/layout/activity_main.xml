@@ -22,6 +22,7 @@
         android:id="@+id/button4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:onClick="listaMonitores"
         android:layout_marginBottom="92dp"
         android:text="Monitor"
         app:layout_constraintBottom_toTopOf="@+id/button5"
