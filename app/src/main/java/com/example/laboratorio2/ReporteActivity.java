@@ -6,6 +6,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.widget.TextView;
 
+import com.example.laboratorio2.Entity.Teclado;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -18,12 +20,12 @@ public class ReporteActivity extends AppCompatActivity {
         //Cuando se crea obten la lista existente
         Intent intent = getIntent();
         Lista lista = (Lista) intent.getSerializableExtra("lista");
+        TextView textView = findViewById(R.id.reporteTextView);
         if(lista.getListaEquipos().size()==0){
             //No hay equipos
-            TextView textView = findViewById(R.id.reporteTextView);
             textView.setText("No se han encontrado equipos añadidos :(");
         }else{
-
+            textView.setText(this.buscarComputadoras(lista)+this.buscarTeclado(lista)+this.buscarMonitores(lista));
         }
     }
     public String buscarComputadoras(Lista lista){
@@ -50,7 +52,7 @@ public class ReporteActivity extends AppCompatActivity {
         return result;
     }
     public String buscarMonitores(Lista lista){
-        String result = "Teclado : ";
+        String result = "Monitores : ";
         List<Monitor> monitores = new ArrayList<>();
         for (Object object: lista.getListaEquipos()) {
             if(object.getClass()==Monitor.class){
@@ -66,18 +68,18 @@ public class ReporteActivity extends AppCompatActivity {
         return result;
     }
     public String buscarTeclado(Lista lista){
-        String result = "Monitor : ";
-        List<Tec> monitores = new ArrayList<>();
+        String result = "Teclados : ";
+        List<Teclado> teclados = new ArrayList<>();
         for (Object object: lista.getListaEquipos()) {
-            if(object.getClass()==Monitor.class){
-                monitores.add((Monitor) object);
+            if(object.getClass()==Teclado.class){
+                teclados.add((Teclado) object);
             }
         }
-        //Obtenido los monitores
-        if(monitores.size()==0){
-            result += "No se han encontrado monitores\n";
+        //Obtenido los teclados
+        if(teclados.size()==0){
+            result += "No se han encontrado teclados\n";
         }else{
-            result += String.valueOf(monitores.size())+"\n";
+            result += String.valueOf(teclados.size())+"\n";
         }
         return result;
     }
