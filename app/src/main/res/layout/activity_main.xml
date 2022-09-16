@@ -25,6 +25,7 @@
         android:layout_marginBottom="92dp"
         android:onClick="registroMonitor"
         android:text="Monitor"
+        app:icon="@drawable/ic_monitor"
         app:layout_constraintBottom_toTopOf="@+id/button5"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.496"
