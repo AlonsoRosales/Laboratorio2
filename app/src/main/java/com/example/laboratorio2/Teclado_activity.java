@@ -13,7 +13,7 @@ public class Teclado_activity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_teclado);
         ScrollView scrollView = (ScrollView) findViewById(R.id.lista_teclados);
-        scrollView.addView();
+        //scrollView.addView();
     }
 
     @Override
