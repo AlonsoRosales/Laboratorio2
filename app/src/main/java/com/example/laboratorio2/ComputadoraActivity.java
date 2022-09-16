@@ -4,8 +4,13 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.widget.ListView;
+import android.widget.TextView;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class ComputadoraActivity extends AppCompatActivity {
 
@@ -15,6 +20,29 @@ public class ComputadoraActivity extends AppCompatActivity {
         setContentView(R.layout.activity_computadora);
 
         Intent intent2 = getIntent();
+        Lista listita = (Lista) intent2.getSerializableExtra("lista");
+
+        List<Computadora> computadoraList = new ArrayList<>();
+
+
+        for(Object objetito : listita.getListaEquipos()){
+            if(objetito.getClass() == Computadora.class){
+                computadoraList.add((Computadora) objetito);
+            }
+        }
+
+
+
+        /*String textoListadoPCS = "";
+        if(computadoraList.size() == 0){
+            textoListadoPCS = "No hay computadoras ingresadas";
+
+        }else{
+
+        }*/
+
+
+
 
 
 

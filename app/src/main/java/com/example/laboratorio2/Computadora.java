@@ -1,0 +1,40 @@
+package com.example.laboratorio2;
+
+public class Computadora {
+    public String activo;
+    public String marca;
+    public int anho;
+    public String CPU;
+
+    public String getActivo() {
+        return activo;
+    }
+
+    public void setActivo(String activo) {
+        this.activo = activo;
+    }
+
+    public String getMarca() {
+        return marca;
+    }
+
+    public void setMarca(String marca) {
+        this.marca = marca;
+    }
+
+    public int getAnho() {
+        return anho;
+    }
+
+    public void setAnho(int anho) {
+        this.anho = anho;
+    }
+
+    public String getCPU() {
+        return CPU;
+    }
+
+    public void setCPU(String CPU) {
+        this.CPU = CPU;
+    }
+}
