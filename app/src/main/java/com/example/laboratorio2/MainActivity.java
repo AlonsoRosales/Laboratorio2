@@ -25,4 +25,10 @@ public class MainActivity extends AppCompatActivity {
         intent.putExtra("lista",lista);
         startActivity(intent);
     }
+    //Redireccion al registro de Teclado
+    public void registroTeclado(View view){
+        Intent intent = new Intent(this,Teclado_activity.class);
+        intent.putExtra("lista",lista);
+        startActivity(intent);
+    }
 }
