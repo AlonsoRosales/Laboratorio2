@@ -15,7 +15,7 @@ public class Teclado_activity extends AppCompatActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.teclado_menu);
-        return true
+        getMenuInflater().inflate(R.menu.teclado_menu,menu);
+        return true;
     }
 }
