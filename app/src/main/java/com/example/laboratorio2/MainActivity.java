@@ -39,4 +39,11 @@ public class MainActivity extends AppCompatActivity {
         intent.putExtra("lista",lista);
         startActivity(intent);
     }
+    //Redireccion al modulo de Reporte
+    public void reporte(View view){
+        Intent intent = new Intent(this,ReporteActivity.class);
+        intent.putExtra("lista",lista);
+        startActivity(intent);
+    }
+
 }
