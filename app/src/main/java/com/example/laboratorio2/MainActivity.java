@@ -15,10 +15,14 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        // Obtengo la variable de los servicios de registro y lo actualizo
+        Intent intent = getIntent();
+        lista = (Lista) intent.getSerializableExtra("lista");
     }
 
     public void listaMonitores(View view) {
         Intent intent = new Intent(this, MonitorListar.class);
+        intent.putExtra("lista",lista);
         startActivity(intent);
     }
     //Redireccion al registro de Computadora

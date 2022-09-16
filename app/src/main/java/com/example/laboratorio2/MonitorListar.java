@@ -1,11 +1,15 @@
 package com.example.laboratorio2;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.DialogInterface;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.PopupMenu;
 import android.widget.TextView;
 
@@ -20,6 +24,7 @@ public class MonitorListar extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_monitor_listar);
         //Colocar para cambiar texto de barra superior
+        Lista lista = (Lista) getIntent().getSerializableExtra("lista");
 
         TextView monitores = findViewById(R.id.lista_monitores);
         if (listaMonitores.isEmpty()) {
@@ -36,6 +41,7 @@ public class MonitorListar extends AppCompatActivity {
     }
 
     public void popupMenuMonitor(MenuItem menuItem) {
+        Log.d("msg", "Abri el menu tres puntos");
         View dots_item = findViewById(R.id.menu_monitor_dots);
         PopupMenu popupMenu = new PopupMenu(this,dots_item);
         popupMenu.getMenuInflater().inflate(R.menu.menu_monitor_popup,popupMenu.getMenu());
@@ -52,5 +58,29 @@ public class MonitorListar extends AppCompatActivity {
                 }
             }
         });
+        popupMenu.show();
+    }
+
+    public void alertaBuscar(MenuItem menuItem) {
+        AlertDialog.Builder alertDialog = new AlertDialog.Builder(this);
+        alertDialog.setTitle("Monitor");
+        EditText input = new EditText(this);
+        input.setHint("Activo");
+        //Revisar input
+        alertDialog.setView(input);
+        alertDialog.setPositiveButton("BUSCAR", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+
+            }
+        });
+        alertDialog.setNegativeButton("CANCELAR", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+
+            }
+        });
+        alertDialog.show();
+
     }
 }

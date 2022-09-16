@@ -4,6 +4,7 @@
 
     <item
         android:id="@+id/buscar_popup"
+        android:onClick="alertaBuscar"
         android:title="Buscar" />
     <item
         android:id="@+id/todo_popup"
