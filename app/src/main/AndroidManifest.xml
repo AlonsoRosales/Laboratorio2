@@ -17,6 +17,13 @@
             android:name=".Teclado_activity"
             android:exported="false" />
         <activity
+            android:name=".ComputadoraAgregarActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ComputadoraActivity"
+            android:exported="false"
+            android:parentActivityName=".MainActivity" />
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
