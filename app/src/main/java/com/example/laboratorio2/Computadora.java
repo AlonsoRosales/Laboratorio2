@@ -37,4 +37,11 @@ public class Computadora {
     public void setCPU(String CPU) {
         this.CPU = CPU;
     }
+
+    public Computadora(String activo, String marca, int anho, String CPU) {
+        this.activo = activo;
+        this.marca = marca;
+        this.anho = anho;
+        this.CPU = CPU;
+    }
 }

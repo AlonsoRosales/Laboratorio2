@@ -49,7 +49,7 @@ public class ComputadoraActivity extends AppCompatActivity {
         FloatingActionButton botonAgregar = findViewById(R.id.botonagregar);
         botonAgregar.setOnClickListener(view -> {
             Intent intent = new Intent(ComputadoraActivity.this,ComputadoraAgregarActivity.class);
-
+            intent.putExtra("listaComputadoras",listita);
             startActivity(intent);
 
         });
