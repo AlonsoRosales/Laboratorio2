@@ -35,7 +35,7 @@ public class MainActivity extends AppCompatActivity {
     }
     //Redireccion al registro de Monitor
     public void registroMonitor(View view){
-        Intent intent = new Intent(this,MainActivity_MonitorListar.class);
+        Intent intent = new Intent(this,MonitorListar.class);
         intent.putExtra("lista",lista);
         startActivity(intent);
     }
