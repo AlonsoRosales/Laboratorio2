@@ -9,6 +9,7 @@ import android.widget.ScrollView;
 import android.widget.TextView;
 
 import com.example.laboratorio2.Entity.Teclado;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -41,6 +42,8 @@ public class Teclado_activity extends AppCompatActivity {
                 //Se lista los teclados
             }
         }
+        FloatingActionButton floatingActionButton = findViewById(R.id.teclados_floatingActionButton);
+        floatingActionButton.setOnClickListener(view -> );
         //scrollView.addView();
     }
 

@@ -29,6 +29,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void listaMonitores(View view) {
         Intent intent = new Intent(this, MonitorListar.class);
+        intent.putExtra("lista",lista);
         startActivity(intent);
     }
     //Redireccion al registro de Computadora

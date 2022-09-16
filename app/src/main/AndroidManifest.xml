@@ -19,13 +19,18 @@
             android:label="Reporte"
             />
         <activity
+            android:name=".MonitorAnadir"
+            android:exported="false" />
+        <activity
             android:name=".MonitorListar"
             android:exported="false"
-            android:parentActivityName=".MainActivity"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+            android:parentActivityName=".MainActivity" />
         <activity
             android:name=".Teclado_activity"
             android:exported="false" />
+        <activity android:name=".Teclado_activity_agregar"
+            android:exported="false"
+            android:parentActivityName="Teclado_activity"/>
         <activity
             android:name=".ComputadoraAgregarActivity"
             android:exported="false"

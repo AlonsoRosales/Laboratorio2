@@ -19,7 +19,7 @@
         app:layout_constraintVertical_bias="0.105" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName"
+        android:id="@+id/campoActivo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="48dp"
@@ -32,7 +32,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName2"
+        android:id="@+id/campoAnho"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="384dp"
@@ -45,7 +45,7 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName3"
+        android:id="@+id/campoCPU"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
@@ -55,17 +55,17 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.159"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName2"
+        app:layout_constraintTop_toBottomOf="@+id/campoAnho"
         app:layout_constraintVertical_bias="0.144" />
 
     <Spinner
         android:id="@+id/spinner"
         android:layout_width="223dp"
         android:layout_height="40dp"
-        app:layout_constraintBottom_toTopOf="@+id/editTextTextPersonName2"
+        app:layout_constraintBottom_toTopOf="@+id/campoAnho"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.17"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName"
+        app:layout_constraintTop_toBottomOf="@+id/campoActivo"
         app:layout_constraintVertical_bias="0.493" />
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -6,5 +6,6 @@
         android:id="@+id/menu_monitor_dots"
         android:icon="@drawable/ic_menu_dots"
         android:title="Item"
-        app:showAsAction="ifRoom" />
+        app:showAsAction="ifRoom"
+        android:onClick="popupMenuMonitor"/>
 </menu>
