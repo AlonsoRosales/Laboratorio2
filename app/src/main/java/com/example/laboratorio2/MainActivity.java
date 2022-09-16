@@ -3,16 +3,23 @@ package com.example.laboratorio2;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.drm.DrmStore;
 import android.os.Bundle;
 import android.view.View;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
     //Se agrega una Lista de objetos
     Lista lista = new Lista();
+    List<Object> equipos = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        lista.setListaEquipos(equipos);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         // Obtengo la variable de los servicios de registro y lo actualizo

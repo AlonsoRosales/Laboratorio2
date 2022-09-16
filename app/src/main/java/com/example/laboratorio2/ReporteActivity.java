@@ -21,7 +21,7 @@ public class ReporteActivity extends AppCompatActivity {
         Intent intent = getIntent();
         Lista lista = (Lista) intent.getSerializableExtra("lista");
         TextView textView = findViewById(R.id.reporteTextView);
-        if(lista.getListaEquipos().size()==0){
+        if(lista.getListaEquipos()==null){
             //No hay equipos
             textView.setText("No se han encontrado equipos añadidos :(");
         }else{
