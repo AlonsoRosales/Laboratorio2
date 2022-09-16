@@ -12,7 +12,7 @@ import java.util.List;
 public class MainActivity extends AppCompatActivity {
 
     //Se agrega una Lista de objetos
-    List<Object> listaEquipos = new ArrayList<>();
+    Lista lista = new Lista();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,7 +21,8 @@ public class MainActivity extends AppCompatActivity {
     }
     //Redireccion al registro de Computadora
     public void registroComputadora(View view){
-        Intent intent = new Intent(this,);
+        Intent intent = new Intent(this,ComputadoraActivity.class);
+        intent.putExtra("lista",lista);
         startActivity(intent);
     }
 }
