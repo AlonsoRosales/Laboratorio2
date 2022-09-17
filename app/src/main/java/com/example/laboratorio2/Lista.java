@@ -14,4 +14,7 @@ public class Lista implements Serializable {
     public void setListaEquipos(List<Object> listaEquipos) {
         this.listaEquipos = listaEquipos;
     }
+
+
+
 }

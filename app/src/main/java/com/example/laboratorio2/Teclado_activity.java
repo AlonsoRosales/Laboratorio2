@@ -43,7 +43,7 @@ public class Teclado_activity extends AppCompatActivity {
             }
         }
         FloatingActionButton floatingActionButton = findViewById(R.id.teclados_floatingActionButton);
-        floatingActionButton.setOnClickListener(view -> );
+        //floatingActionButton.setOnClickListener(view -> );
         //scrollView.addView();
     }
 

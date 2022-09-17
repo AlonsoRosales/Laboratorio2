@@ -34,7 +34,7 @@
         <activity
             android:name=".ComputadoraAgregarActivity"
             android:exported="false"
-            android:parentActivityName=".ComputadoraActivity"/>
+            />
         <activity
             android:name=".ComputadoraActivity"
             android:exported="false"

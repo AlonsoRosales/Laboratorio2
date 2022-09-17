@@ -19,12 +19,13 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        lista.setListaEquipos(equipos);
+        //lista.setListaEquipos(equipos);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        lista.setListaEquipos(equipos);
         // Obtengo la variable de los servicios de registro y lo actualizo
-        Intent intent = getIntent();
-        lista = (Lista) intent.getSerializableExtra("lista");
+        //Intent intent = getIntent();
+        //lista = (Lista) intent.getSerializableExtra("lista");
     }
 
     public void listaMonitores(View view) {
