@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.widget.TextView;
 
+import com.example.laboratorio2.Entity.Monitor;
 import com.example.laboratorio2.Entity.Teclado;
 
 import java.util.ArrayList;

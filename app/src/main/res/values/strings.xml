@@ -1,3 +1,25 @@
 <resources>
     <string name="app_name">Laboratorio2</string>
+    <string-array name="monitor_marcas">
+        <item>Marca</item>
+        <item>Acer</item>
+        <item>ViewSonic</item>
+        <item>Dell</item>
+        <item>LG</item>
+        <item>NEC</item>
+        <item>Asus</item>
+        <item>Samsung</item>
+        <item>Iiyama</item>
+    </string-array>
+    <string-array name="monitor_pulgadas">
+        <item>Pulgadas</item>
+        <item>22"</item>
+        <item>24"</item>
+        <item>27"</item>
+        <item>32"</item>
+        <item>40"</item>
+        <item>42"</item>
+        <item>43"</item>
+        <item>50"</item>
+    </string-array>
 </resources>
