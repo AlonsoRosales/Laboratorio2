@@ -7,7 +7,7 @@
     tools:context=".Teclado_activity_agregar">
 
     <Spinner
-        android:id="@+id/spinner3"
+        android:id="@+id/spinner_marca"
         android:layout_width="289dp"
         android:layout_height="49dp"
         android:layout_marginStart="12dp"

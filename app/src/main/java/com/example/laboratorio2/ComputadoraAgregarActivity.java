@@ -7,7 +7,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -32,7 +31,7 @@ public class ComputadoraAgregarActivity extends AppCompatActivity {
         valuesSpinner.add("HP");
 
         ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item,valuesSpinner);
-        Spinner spinner = findViewById(R.id.spinner);
+        Spinner spinner = findViewById(R.id.spinner_pc);
         spinner.setAdapter(arrayAdapter);
         System.out.println("-----------------------------------------------------------1");
     }
@@ -98,7 +97,7 @@ public class ComputadoraAgregarActivity extends AppCompatActivity {
             TextView textView3 = findViewById(R.id.campoCPU);
             String CPU = textView3.getText().toString();
 
-            Spinner spinner = findViewById(R.id.spinner);
+            Spinner spinner = findViewById(R.id.spinner_pc);
             String marca =spinner.getSelectedItem().toString();
 
             Computadora computadora = new Computadora(activo,marca,anho,CPU);

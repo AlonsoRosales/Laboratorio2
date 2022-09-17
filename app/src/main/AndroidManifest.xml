@@ -20,7 +20,8 @@
             />
         <activity
             android:name=".MonitorAnadir"
-            android:exported="false" />
+            android:exported="false"
+            android:parentActivityName=".MonitorListar"/>
         <activity
             android:name=".MonitorListar"
             android:exported="false"

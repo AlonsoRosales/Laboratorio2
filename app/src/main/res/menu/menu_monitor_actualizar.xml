@@ -5,6 +5,7 @@
     <item
         android:icon="@drawable/ic_check"
         android:title="Item"
+        android:onClick="guardarMonitor"
         app:showAsAction="ifRoom" />
     <item
         android:icon="@drawable/ic_trash"

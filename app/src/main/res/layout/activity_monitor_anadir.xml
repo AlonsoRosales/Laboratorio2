@@ -26,10 +26,10 @@
         android:ems="10"
         android:hint="Año"
         android:inputType="textPersonName"
-        app:layout_constraintEnd_toEndOf="@+id/spinner2"
+        app:layout_constraintEnd_toEndOf="@+id/spinner_pulgadas"
         app:layout_constraintHorizontal_bias="0.733"
-        app:layout_constraintStart_toStartOf="@+id/spinner2"
-        app:layout_constraintTop_toBottomOf="@+id/spinner2" />
+        app:layout_constraintStart_toStartOf="@+id/spinner_pulgadas"
+        app:layout_constraintTop_toBottomOf="@+id/spinner_pulgadas" />
 
     <EditText
         android:id="@+id/input_modelo_anadir"
@@ -47,7 +47,7 @@
         app:layout_constraintTop_toBottomOf="@+id/input_anio_anadir" />
 
     <Spinner
-        android:id="@+id/spinner"
+        android:id="@+id/spinner_pc"
         android:layout_width="195dp"
         android:layout_height="42dp"
         android:layout_marginTop="32dp"
@@ -57,32 +57,32 @@
         app:layout_constraintTop_toBottomOf="@+id/input_activo_anadir" />
 
     <Spinner
-        android:id="@+id/spinner2"
+        android:id="@+id/spinner_pulgadas"
         android:layout_width="195dp"
         android:layout_height="42dp"
         android:layout_marginTop="32dp"
         android:entries="@array/monitor_pulgadas"
-        app:layout_constraintEnd_toEndOf="@+id/spinner3"
+        app:layout_constraintEnd_toEndOf="@+id/spinner_marca"
         app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="@+id/spinner3"
-        app:layout_constraintTop_toBottomOf="@+id/spinner3" />
+        app:layout_constraintStart_toStartOf="@+id/spinner_marca"
+        app:layout_constraintTop_toBottomOf="@+id/spinner_marca" />
 
     <Spinner
-        android:id="@+id/spinner3"
+        android:id="@+id/spinner_marca"
         android:layout_width="195dp"
         android:layout_height="42dp"
         android:layout_marginTop="32dp"
         android:entries="@array/monitor_marcas"
-        app:layout_constraintEnd_toEndOf="@+id/spinner"
+        app:layout_constraintEnd_toEndOf="@+id/spinner_pc"
         app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="@+id/spinner"
-        app:layout_constraintTop_toBottomOf="@+id/spinner" />
+        app:layout_constraintStart_toStartOf="@+id/spinner_pc"
+        app:layout_constraintTop_toBottomOf="@+id/spinner_pc" />
 
     <TextView
         android:id="@+id/monitor_anadir"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="128dp"
+        android:layout_marginTop="115dp"
         android:text="Monitor"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
