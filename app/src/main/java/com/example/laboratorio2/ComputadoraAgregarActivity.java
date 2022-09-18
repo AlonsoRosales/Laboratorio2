@@ -1,6 +1,7 @@
 package com.example.laboratorio2;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -17,11 +18,17 @@ import java.util.List;
 public class ComputadoraAgregarActivity extends AppCompatActivity {
 
     private Computadora computadora = null;
+    public Lista computadoras = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_computadora_agregar);
+        getSupportActionBar().setTitle("Nuevo");
+
+        ActionBar actionBar =  getSupportActionBar();
+        actionBar.setDisplayHomeAsUpEnabled(true);
+
 
         List<String> valuesSpinner = new ArrayList<>();
         valuesSpinner.add(0,"Marca");
@@ -33,56 +40,19 @@ public class ComputadoraAgregarActivity extends AppCompatActivity {
         ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item,valuesSpinner);
         Spinner spinner = findViewById(R.id.spinner_pc);
         spinner.setAdapter(arrayAdapter);
-        System.out.println("-----------------------------------------------------------1");
+
+
+        Intent intent = getIntent();
+        Lista listita = (Lista) intent.getSerializableExtra("listaComputadoras");
+        computadoras = listita;
+
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu){
         getMenuInflater().inflate(R.menu.appbar_computadora_agregar,menu);
-        System.out.println("-----------------------------------------------------------2");
         return true;
     }
-
-
-    /*public boolean checkMenuAgregar(MenuItem item){
-        TextView textView1 = findViewById(R.id.campoActivo);
-        String activo = textView1.getText().toString();
-
-        TextView textView2 = findViewById(R.id.campoAnho);
-        String anhoStr = textView2.getText().toString();
-        int anho = Integer.parseInt(anhoStr);
-
-        TextView textView3 = findViewById(R.id.campoCPU);
-        String CPU = textView3.getText().toString();
-
-        Spinner spinner = findViewById(R.id.spinner);
-        String marca =spinner.getSelectedItem().toString();
-
-        computadora = new Computadora(activo,marca,anho,CPU);
-
-        if(computadora != null){
-            System.out.println(computadora.activo);
-            System.out.println(computadora.anho);
-            System.out.println(computadora.marca);
-            System.out.println(computadora.CPU);
-            Intent intent = getIntent();
-            Lista listita = (Lista) intent.getSerializableExtra("listaComputadoras");
-            listita.getListaEquipos().add(computadora);
-
-            Intent intent1 = new Intent(ComputadoraAgregarActivity.this,ComputadoraActivity.class);
-            intent1.putExtra("lista",listita);
-            startActivity(intent1);
-
-        }
-        Intent intent = getIntent();
-        Lista listita = (Lista) intent.getSerializableExtra("listaComputadoras");
-        listita.getListaEquipos().add(computadora);
-
-        Intent intent1 = new Intent(ComputadoraAgregarActivity.this,ComputadoraActivity.class);
-        intent1.putExtra("lista",listita);
-        startActivity(intent1);
-        return true;
-    }*/
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item){
@@ -102,14 +72,23 @@ public class ComputadoraAgregarActivity extends AppCompatActivity {
 
             Computadora computadora = new Computadora(activo,marca,anho,CPU);
 
-            Intent intent = getIntent();
-            Lista listita = (Lista) intent.getSerializableExtra("listaComputadoras");
-            listita.getListaEquipos().add(computadora);
+            computadoras.getListaEquipos().add(computadora);
 
             Intent intent1 = new Intent(ComputadoraAgregarActivity.this,ComputadoraActivity.class);
-            intent1.putExtra("lista",listita);
+            intent1.putExtra("lista",computadoras);
             startActivity(intent1);
+
         }
+
+        if(item.getItemId() == android.R.id.home){
+            Intent intent1 = new Intent(ComputadoraAgregarActivity.this,ComputadoraActivity.class);
+            intent1.putExtra("lista",computadoras);
+            startActivity(intent1);
+            this.finish();
+            return true;
+        }
+
+
         return super.onOptionsItemSelected(item);
     }
 

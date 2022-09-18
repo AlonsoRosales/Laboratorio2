@@ -1,6 +1,8 @@
 package com.example.laboratorio2;
 
-public class Computadora {
+import java.io.Serializable;
+
+public class Computadora implements Serializable {
     public String activo;
     public String marca;
     public int anho;
