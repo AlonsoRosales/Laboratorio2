@@ -7,7 +7,7 @@
     tools:context=".Teclado_activity_agregar">
 
     <Spinner
-        android:id="@+id/spinner_marca"
+        android:id="@+id/teclado_Idioma_agregar"
         android:layout_width="289dp"
         android:layout_height="49dp"
         android:layout_marginStart="12dp"
@@ -41,7 +41,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName"
+        android:id="@+id/actionTeclado"
         android:layout_width="383dp"
         android:layout_height="53dp"
         android:layout_marginStart="12dp"
@@ -56,7 +56,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName2"
+        android:id="@+id/anhoTeclado"
         android:layout_width="387dp"
         android:layout_height="48dp"
         android:layout_marginStart="12dp"
@@ -68,10 +68,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName" />
+        app:layout_constraintTop_toBottomOf="@+id/actionTeclado" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName3"
+        android:id="@+id/mdeloTeclado"
         android:layout_width="383dp"
         android:layout_height="57dp"
         android:layout_marginStart="13dp"
@@ -83,7 +83,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName2" />
+        app:layout_constraintTop_toBottomOf="@+id/anhoTeclado" />
 
     <Spinner
         android:id="@+id/teclado_PC_agregar"
@@ -94,7 +94,7 @@
         android:layout_marginEnd="110dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName" />
+        app:layout_constraintTop_toBottomOf="@+id/actionTeclado" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

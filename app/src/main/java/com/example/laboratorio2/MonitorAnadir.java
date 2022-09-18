@@ -15,15 +15,11 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.Spinner;
-import android.widget.TextView;
-import android.widget.Toast;
 
 import com.example.laboratorio2.Entity.Monitor;
 import com.example.laboratorio2.Entity.Teclado;
 
-import java.text.ParseException;
 import java.util.ArrayList;
-import java.util.List;
 
 public class MonitorAnadir extends AppCompatActivity {
 
@@ -56,7 +52,7 @@ public class MonitorAnadir extends AppCompatActivity {
 
         //Spinners
         Spinner spinner_pc = findViewById(R.id.spinner_pc);
-        Spinner spinner_marca = findViewById(R.id.spinner_marca);
+        Spinner spinner_marca = findViewById(R.id.teclado_Idioma_agregar);
         Spinner spinner_pulgadas = findViewById(R.id.spinner_pulgadas);
 
         ArrayList<String> listaComputadoras = new ArrayList<>();

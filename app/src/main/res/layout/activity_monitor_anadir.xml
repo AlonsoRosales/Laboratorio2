@@ -62,13 +62,13 @@
         android:layout_height="42dp"
         android:layout_marginTop="32dp"
         android:entries="@array/monitor_pulgadas"
-        app:layout_constraintEnd_toEndOf="@+id/spinner_marca"
+        app:layout_constraintEnd_toEndOf="@+id/teclado_Idioma_agregar"
         app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="@+id/spinner_marca"
-        app:layout_constraintTop_toBottomOf="@+id/spinner_marca" />
+        app:layout_constraintStart_toStartOf="@+id/teclado_Idioma_agregar"
+        app:layout_constraintTop_toBottomOf="@+id/teclado_Idioma_agregar" />
 
     <Spinner
-        android:id="@+id/spinner_marca"
+        android:id="@+id/teclado_Idioma_agregar"
         android:layout_width="195dp"
         android:layout_height="42dp"
         android:layout_marginTop="32dp"
