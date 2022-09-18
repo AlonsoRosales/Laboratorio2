@@ -1,5 +1,6 @@
 package com.example.laboratorio2;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -24,13 +25,14 @@ import java.util.ArrayList;
 public class MonitorListar extends AppCompatActivity {
 
     ArrayList<Monitor> listaMonitores = new ArrayList<>();
+    Lista listaActividad = new Lista();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_monitor_listar);
         getSupportActionBar().setTitle("Monitor");
-        Lista lista = (Lista) getIntent().getSerializableExtra("lista");
+        listaActividad = (Lista) getIntent().getSerializableExtra("lista");
 
         String mensaje_exito = getIntent().getStringExtra("exito");
         if (mensaje_exito != null && !mensaje_exito.equals("")) {
@@ -83,8 +85,10 @@ public class MonitorListar extends AppCompatActivity {
 //        monitor4.setModelo("d1236");
 //        lista.getListaEquipos().add(monitor4);
 
-        for (Object o : lista.getListaEquipos()) {
-            listaMonitores.add((Monitor) o);
+        for(Object o : listaActividad.getListaEquipos()){
+            if(o.getClass() == Monitor.class){
+                listaMonitores.add((Monitor) o);
+            }
         }
         listarMonitores("");
 
@@ -96,11 +100,23 @@ public class MonitorListar extends AppCompatActivity {
         return true;
     }
 
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item){
+        if(item.getItemId() == android.R.id.home){
+            Intent intent1 = new Intent(MonitorListar.this,MainActivity.class);
+            intent1.putExtra("lista",listaActividad);
+            startActivity(intent1);
+            this.finish();
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
     public void agregarMonitores(View view) {
         Intent intent = new Intent(this,MonitorAnadir.class);
         intent.putExtra("accion",1); //1: Añadir    2: Actualizar
         //intent.putExtra("monitorAActualizar", );
-        intent.putExtra("listaMonitores", listaMonitores);
+        intent.putExtra("listaMonitores", listaActividad);
         startActivity(intent);
     }
 
@@ -108,7 +124,7 @@ public class MonitorListar extends AppCompatActivity {
         Intent intent = new Intent(this,MonitorAnadir.class);
         intent.putExtra("accion",2); //1: Añadir    2: Actualizar
         intent.putExtra("monitorAActualizar", m);
-        intent.putExtra("listaMonitores", listaMonitores);
+        intent.putExtra("listaMonitores", listaActividad);
         startActivity(intent);
     }
 
@@ -143,12 +159,21 @@ public class MonitorListar extends AppCompatActivity {
             for (Monitor m : listaMonitoresAMostrar) {
                 TextView textView1 = new TextView(this);
                 textView1.setTextSize(20);
-                textView1.setText("Activo: " + m.getActivo() + "\n" +
-                        "PC: " + m.getPc() + "\n" +
-                        "Marca: " + m.getMarca() + "\n" +
-                        "Pulgadas: " + m.getPulgadas() + "\n" +
-                        "Año: " + m.getAnio() + "\n" +
-                        "Modelo: " + m.getModelo());
+                if (m.getPc() == null) {
+                    textView1.setText("Activo: " + m.getActivo() + "\n" +
+                            "PC: -" + "\n" +
+                            "Marca: " + m.getMarca() + "\n" +
+                            "Pulgadas: " + m.getPulgadas() + "\n" +
+                            "Año: " + m.getAnio() + "\n" +
+                            "Modelo: " + m.getModelo());
+                } else {
+                    textView1.setText("Activo: " + m.getActivo() + "\n" +
+                            "PC: " + m.getPc().getActivo() + "\n" +
+                            "Marca: " + m.getMarca() + "\n" +
+                            "Pulgadas: " + m.getPulgadas() + "\n" +
+                            "Año: " + m.getAnio() + "\n" +
+                            "Modelo: " + m.getModelo());
+                }
                 if (color) {
                     textView1.setBackgroundColor(0xFFC5C5C5);
                 }

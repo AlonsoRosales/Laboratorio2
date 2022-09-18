@@ -1,11 +1,13 @@
 package com.example.laboratorio2.Entity;
 
+import com.example.laboratorio2.Computadora;
+
 import java.io.Serializable;
 
 public class Monitor implements Serializable {
 
     private String activo;
-    private String pc;
+    private Computadora pc;
     private String marca;
     private String pulgadas;
     private String anio;
@@ -17,14 +19,6 @@ public class Monitor implements Serializable {
 
     public void setActivo(String activo) {
         this.activo = activo;
-    }
-
-    public String getPc() {
-        return pc;
-    }
-
-    public void setPc(String pc) {
-        this.pc = pc;
     }
 
     public String getMarca() {
@@ -57,5 +51,13 @@ public class Monitor implements Serializable {
 
     public void setModelo(String modelo) {
         this.modelo = modelo;
+    }
+
+    public Computadora getPc() {
+        return pc;
+    }
+
+    public void setPc(Computadora pc) {
+        this.pc = pc;
     }
 }

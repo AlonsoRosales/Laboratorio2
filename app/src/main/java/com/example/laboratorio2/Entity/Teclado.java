@@ -1,6 +1,8 @@
 package com.example.laboratorio2.Entity;
 
-public class Teclado {
+import java.io.Serializable;
+
+public class Teclado implements Serializable {
     private String activo = new String();
     private String PC = new String();
     private String marca = new String();
