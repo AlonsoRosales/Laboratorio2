@@ -1,5 +1,6 @@
 package com.example.laboratorio2;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -11,15 +12,18 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.laboratorio2.Entity.Monitor;
+import com.example.laboratorio2.Entity.Teclado;
 
 import java.text.ParseException;
 import java.util.ArrayList;
+import java.util.List;
 
 public class MonitorAnadir extends AppCompatActivity {
 
@@ -27,6 +31,7 @@ public class MonitorAnadir extends AppCompatActivity {
     Monitor monitor = new Monitor();
     Monitor monitorAActualizar = new Monitor();
     ArrayList<Monitor> listaMonitorActividad = new ArrayList<>();
+    Lista listaAEnviar = new Lista();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,7 +40,13 @@ public class MonitorAnadir extends AppCompatActivity {
 
         accionGlobal = getIntent().getIntExtra("accion",1);
         monitorAActualizar = (Monitor) getIntent().getSerializableExtra("monitorAActualizar");
-        listaMonitorActividad = (ArrayList<Monitor>) getIntent().getSerializableExtra("listaMonitores");
+
+        listaAEnviar = (Lista) getIntent().getSerializableExtra("listaMonitores");
+        for(Object o : listaAEnviar.getListaEquipos()){
+            if(o.getClass() == Monitor.class){
+                listaMonitorActividad.add((Monitor) o);
+            }
+        }
 
         if (accionGlobal == 1) {
             getSupportActionBar().setTitle("Nuevo");
@@ -48,20 +59,36 @@ public class MonitorAnadir extends AppCompatActivity {
         Spinner spinner_marca = findViewById(R.id.spinner_marca);
         Spinner spinner_pulgadas = findViewById(R.id.spinner_pulgadas);
 
+        ArrayList<String> listaComputadoras = new ArrayList<>();
+        listaComputadoras.add("PC Activo");
+        for(Object o : listaAEnviar.getListaEquipos()){
+            if(o.getClass() == Computadora.class){
+                listaComputadoras.add(((Computadora) o).getActivo());
+            }
+        }
+
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item, listaComputadoras);
+        spinner_pc.setAdapter(adapter);
+
         spinner_pc.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int position, long l) {
                 String opcionSpinner_pc = spinner_pc.getSelectedItem().toString();
                 if (opcionSpinner_pc.equals("PC Activo")) {
-                    monitor.setPc("");
+                    monitor.setPc(null);
                 } else {
-                    monitor.setPc(opcionSpinner_pc);
+
+                    for(Object o : listaAEnviar.getListaEquipos()){
+                        if((o.getClass() == Computadora.class) && (((Computadora) o).getActivo().equals(opcionSpinner_pc))){
+                            monitor.setPc(((Computadora) o));
+                        }
+                    }
                 }
             }
 
             @Override
             public void onNothingSelected(AdapterView<?> adapterView) {
-                monitor.setPc("");
+                monitor.setPc(null);
             }
         });
 
@@ -70,7 +97,7 @@ public class MonitorAnadir extends AppCompatActivity {
             public void onItemSelected(AdapterView<?> adapterView, View view, int position, long l) {
                 String opcionSpinner_marca = spinner_marca.getSelectedItem().toString();
                 if (opcionSpinner_marca.equals("Marca")) {
-                    monitor.setMarca("");
+                    monitor.setMarca("-");
                 } else {
                     monitor.setMarca(opcionSpinner_marca);
                 }
@@ -87,7 +114,7 @@ public class MonitorAnadir extends AppCompatActivity {
             public void onItemSelected(AdapterView<?> adapterView, View view, int position, long l) {
                 String opcionSpinner_pulgadas = spinner_pulgadas.getSelectedItem().toString();
                 if (opcionSpinner_pulgadas.equals("Pulgadas")) {
-                    monitor.setPulgadas("");
+                    monitor.setPulgadas("-");
                 } else {
                     monitor.setPulgadas(opcionSpinner_pulgadas);
                 }
@@ -127,6 +154,18 @@ public class MonitorAnadir extends AppCompatActivity {
             modelo_edit.setText(monitorAActualizar.getModelo());
         }
 
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item){
+        if(item.getItemId() == android.R.id.home){
+            Intent intent1 = new Intent(MonitorAnadir.this,MonitorListar.class);
+            intent1.putExtra("lista",listaAEnviar);
+            startActivity(intent1);
+            this.finish();
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 
     public void guardarMonitor(MenuItem menuItem) {
@@ -173,27 +212,23 @@ public class MonitorAnadir extends AppCompatActivity {
             Intent intent = new Intent(this,MonitorListar.class);
 
             if (accionGlobal == 1) {
-                listaMonitorActividad.add(monitor);
+                listaAEnviar.getListaEquipos().add(monitor);
                 intent.putExtra("exito", "Se ha agregado un nuevo monitor de activo " + monitor.getActivo());
             } else {
                 intent.putExtra("exito", "Se ha actualizado el monitor");
-                for (Monitor m : listaMonitorActividad) {
-                    if (m.getActivo().equals(monitorAActualizar.getActivo())) {
-                        m.setActivo(monitor.getActivo());
-                        m.setPc(monitor.getPc());
-                        m.setMarca(monitor.getMarca());
-                        m.setPulgadas(monitor.getPulgadas());
-                        m.setAnio(monitor.getAnio());
-                        m.setModelo(monitor.getModelo());
+                for (Object o : listaAEnviar.getListaEquipos()) {
+                    if ((o.getClass() == Monitor.class) && (((Monitor) o).getActivo().equals(monitorAActualizar.getActivo()))) {
+                        ((Monitor) o).setActivo(monitor.getActivo());
+                        ((Monitor) o).setPc(monitor.getPc());
+                        ((Monitor) o).setMarca(monitor.getMarca());
+                        ((Monitor) o).setPulgadas(monitor.getPulgadas());
+                        ((Monitor) o).setAnio(monitor.getAnio());
+                        ((Monitor) o).setModelo(monitor.getModelo());
                     }
                 }
             }
 
-            Lista lista = new Lista();
-            for (Monitor m : listaMonitorActividad) {
-                lista.getListaEquipos().add(m);
-            }
-            intent.putExtra("lista", lista);
+            intent.putExtra("lista", listaAEnviar);
             startActivity(intent);
         }
     }
@@ -227,6 +262,11 @@ public class MonitorAnadir extends AppCompatActivity {
                 Lista lista = new Lista();
                 for (Monitor m : listaMonitorActividad) {
                     lista.getListaEquipos().add(m);
+                }
+                for (Object o : listaAEnviar.getListaEquipos()) {
+                    if ((o.getClass() == Computadora.class) || (o.getClass() == Teclado.class)) {
+                        lista.getListaEquipos().add(o);
+                    }
                 }
                 intent.putExtra("lista", lista);
                 startActivity(intent);
