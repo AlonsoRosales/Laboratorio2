@@ -24,15 +24,12 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         lista.setListaEquipos(equipos);
         // Obtengo la variable de los servicios de registro y lo actualizo
-        //Intent intent = getIntent();
-        //lista = (Lista) intent.getSerializableExtra("lista");
+        Intent intent = getIntent();
+        if(intent.hasExtra("lista")){
+            lista = (Lista) intent.getSerializableExtra("lista");
+        }
     }
 
-    public void listaMonitores(View view) {
-        Intent intent = new Intent(this, MonitorListar.class);
-        intent.putExtra("lista",lista);
-        startActivity(intent);
-    }
     //Redireccion al registro de Computadora
     public void registroComputadora(View view){
         Intent intent = new Intent(this,ComputadoraActivity.class);

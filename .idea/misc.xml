@@ -3,6 +3,18 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/Agust/OneDrive/Escritorio/Iot/Labs/Laboratorio2/app/src/main/res/layout/activity_computadora.xml" value="0.2734375" />
+        <entry key="..\:/Users/Agust/OneDrive/Escritorio/Iot/Labs/Laboratorio2/app/src/main/res/layout/activity_computadora_actualizar.xml" value="0.2734375" />
+        <entry key="..\:/Users/Agust/OneDrive/Escritorio/Iot/Labs/Laboratorio2/app/src/main/res/layout/activity_computadora_agregar.xml" value="0.2734375" />
+        <entry key="..\:/Users/Agust/OneDrive/Escritorio/Iot/Labs/Laboratorio2/app/src/main/res/menu/appbar_computadora_actualizar.xml" value="0.2734375" />
+        <entry key="..\:/Users/Agust/OneDrive/Escritorio/Iot/Labs/Laboratorio2/app/src/main/res/menu/appbar_computadora_agregar.xml" value="0.2734375" />
+        <entry key="..\:/Users/Agust/OneDrive/Escritorio/Iot/Labs/Laboratorio2/app/src/main/res/menu/menu_computadora.xml" value="0.2734375" />
+        <entry key="..\:/Users/Agust/OneDrive/Escritorio/Iot/Labs/Laboratorio2/app/src/main/res/menu/menu_monitor.xml" value="0.2734375" />
+        <entry key="..\:/Users/Agust/OneDrive/Escritorio/Iot/Labs/Laboratorio2/app/src/main/res/menu/menu_monitor_actualizar.xml" value="0.2734375" />
+        <entry key="..\:/Users/Agust/OneDrive/Escritorio/Iot/Labs/Laboratorio2/app/src/main/res/menu/menu_monitor_agregar.xml" value="0.2734375" />
+        <entry key="..\:/Users/Agust/OneDrive/Escritorio/Iot/Labs/Laboratorio2/app/src/main/res/menu/menu_monitor_popup.xml" value="0.2734375" />
+        <entry key="..\:/Users/Agust/OneDrive/Escritorio/Iot/Labs/Laboratorio2/app/src/main/res/menu/popup_menu_computadora_principal.xml" value="0.2734375" />
+        <entry key="..\:/Users/Agust/OneDrive/Escritorio/Iot/Labs/Laboratorio2/app/src/main/res/menu/puntitos_appbar_computadora_principal.xml" value="0.2734375" />
         <entry key="..\:/Users/Alonso/AndroidStudioProjects/Laboratorio2/app/src/main/res/layout/activity_computadora.xml" value="0.33" />
         <entry key="..\:/Users/Alonso/AndroidStudioProjects/Laboratorio2/app/src/main/res/layout/activity_computadora_actualizar.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/Alonso/AndroidStudioProjects/Laboratorio2/app/src/main/res/layout/activity_computadora_agregar.xml" value="0.36666666666666664" />
