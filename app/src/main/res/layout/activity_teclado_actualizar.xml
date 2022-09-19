@@ -6,4 +6,64 @@
     android:layout_height="match_parent"
     tools:context=".Teclado_actualizar_activity">
 
+    <Spinner
+        android:id="@+id/spinnerPCtecladoact"
+        android:layout_width="301dp"
+        android:layout_height="58dp"
+        tools:layout_editor_absoluteX="11dp"
+        tools:layout_editor_absoluteY="280dp" />
+
+    <Spinner
+        android:id="@+id/spinneridiomaTecladoACT"
+        android:layout_width="301dp"
+        android:layout_height="58dp"
+        tools:layout_editor_absoluteX="14dp"
+        tools:layout_editor_absoluteY="397dp" />
+
+    <EditText
+        android:id="@+id/actActivoTeclado"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="14dp"
+        android:layout_marginEnd="188dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="103dp" />
+
+    <EditText
+        android:id="@+id/anhoactteclado"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="11dp"
+        android:layout_marginEnd="191dp"
+        android:layout_marginBottom="36dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        app:layout_constraintBottom_toTopOf="@+id/modeloactualizarteclado"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <EditText
+        android:id="@+id/modeloactualizarteclado"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="11dp"
+        android:layout_marginEnd="191dp"
+        android:layout_marginBottom="84dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Spinner
+        android:id="@+id/spinnerMacarTecladoact"
+        android:layout_width="301dp"
+        android:layout_height="58dp"
+        tools:layout_editor_absoluteX="11dp"
+        tools:layout_editor_absoluteY="193dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>

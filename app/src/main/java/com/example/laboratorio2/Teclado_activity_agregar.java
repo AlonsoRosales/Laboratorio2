@@ -30,7 +30,7 @@ public class Teclado_activity_agregar extends AppCompatActivity {
         ActionBar actionBar =  getSupportActionBar();
         actionBar.setDisplayHomeAsUpEnabled(true);
         Intent intent = getIntent();
-        Lista listita = (Lista) intent.getSerializableExtra("listaComputadoras");
+        Lista listita = (Lista) intent.getSerializableExtra("lista");
         maquinas = listita;
         //Llenamos los sprinner con los datos requeridos
         List<String> valuesOfSprinnerMarca = new ArrayList<>();
@@ -50,22 +50,28 @@ public class Teclado_activity_agregar extends AppCompatActivity {
         ArrayAdapter<String> arrayAdapter1 = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item,valuesOfSprinnerIdioma);
         Spinner spinnerIdioma = findViewById(R.id.teclado_Idioma_agregar);
         spinnerIdioma.setAdapter(arrayAdapter1);
-
-        //Debemos obtener la lista de computadoras para obtener el codigo de cada computadora para mandarlo al spinner
-        List<Computadora> computadoraList = new ArrayList<>();
-        for (Object obj: maquinas.getListaEquipos()) {
-            if (obj.getClass() == Computadora.class){
-                computadoraList.add((Computadora) obj);
+        if (maquinas.getListaEquipos().isEmpty()){
+            Intent intent1 = new Intent(Teclado_activity_agregar.this,MainActivity.class);
+            intent1.putExtra("lista",maquinas);
+            startActivity(intent1);
+            this.finish();
+        }else{
+            //Debemos obtener la lista de computadoras para obtener el codigo de cada computadora para mandarlo al spinner
+            List<Computadora> computadoraList = new ArrayList<>();
+            for (Object obj: maquinas.getListaEquipos()) {
+                if (obj.getClass() == Computadora.class){
+                    computadoraList.add((Computadora) obj);
+                }
             }
+            List<String> valuesOfSprinnerComputadora = new ArrayList<>();
+            valuesOfSprinnerComputadora.add(0,"PC");
+            for (Computadora computadora:computadoraList) {
+                valuesOfSprinnerComputadora.add(computadora.activo);
+            }
+            ArrayAdapter<String> arrayAdapter2 = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item,valuesOfSprinnerComputadora);
+            Spinner spinnerComputadora = findViewById(R.id.teclado_PC_agregar);
+            spinnerComputadora.setAdapter(arrayAdapter2);
         }
-        List<String> valuesOfSprinnerComputadora = new ArrayList<>();
-        valuesOfSprinnerComputadora.add(0,"PC");
-        for (Computadora computadora:computadoraList) {
-            valuesOfSprinnerComputadora.add(computadora.activo);
-        }
-        ArrayAdapter<String> arrayAdapter2 = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item,valuesOfSprinnerComputadora);
-        Spinner spinnerComputadora = findViewById(R.id.teclado_PC_agregar);
-        spinnerComputadora.setAdapter(arrayAdapter2);
     }
 
     @Override
@@ -77,11 +83,11 @@ public class Teclado_activity_agregar extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         if (item.getItemId() == R.id.check_agregar){
-            EditText editTextActivo = findViewById(R.id.actionTeclado);
+            TextView editTextActivo = findViewById(R.id.actionTeclado);
             teclado.setActivo(editTextActivo.getText().toString());
-            EditText editTextAnho = findViewById(R.id.anhoTeclado);
+            TextView editTextAnho = findViewById(R.id.anhoTeclado);
             teclado.setAnho(editTextAnho.getText().toString());
-            EditText editTextModelo = findViewById(R.id.mdeloTeclado);
+            TextView editTextModelo = findViewById(R.id.mdeloTeclado);
             teclado.setModelo(editTextModelo.getText().toString());
             Spinner computadorSpinner = findViewById(R.id.teclado_PC_agregar);
             teclado.setPC(computadorSpinner.getSelectedItem().toString());
@@ -90,7 +96,7 @@ public class Teclado_activity_agregar extends AppCompatActivity {
             Spinner spinner = findViewById(R.id.teclado_Marca_agregar);
             teclado.setMarca(spinner.getSelectedItem().toString());
             maquinas.getListaEquipos().add(teclado);
-            Intent intent1 = new Intent(Teclado_activity_agregar.this,ComputadoraActivity.class);
+            Intent intent1 = new Intent(Teclado_activity_agregar.this,Teclado_activity.class);
             intent1.putExtra("lista",maquinas);
             startActivity(intent1);
             this.finish();
@@ -99,7 +105,7 @@ public class Teclado_activity_agregar extends AppCompatActivity {
 
         }
         if (item.getItemId() == android.R.id.home){
-            Intent intent1 = new Intent(Teclado_activity_agregar.this,ComputadoraActivity.class);
+            Intent intent1 = new Intent(Teclado_activity_agregar.this,MainActivity.class);
             intent1.putExtra("lista",maquinas);
             startActivity(intent1);
             this.finish();

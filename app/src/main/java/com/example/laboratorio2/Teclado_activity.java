@@ -77,7 +77,7 @@ public class Teclado_activity extends AppCompatActivity {
         FloatingActionButton floatingActionButton = findViewById(R.id.teclados_floatingActionButton);
         floatingActionButton.setOnClickListener(view -> {
             Intent intent1 = new Intent(this,Teclado_activity_agregar.class);
-            intent1.putExtra("listaTeclado",lista);
+            intent1.putExtra("lista",lista);
             startActivity(intent1);
         });
 
