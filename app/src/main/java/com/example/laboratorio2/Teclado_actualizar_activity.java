@@ -8,6 +8,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ArrayAdapter;
@@ -67,19 +68,20 @@ public class Teclado_actualizar_activity extends AppCompatActivity {
         List<String> valores2 = new ArrayList<>();
         int position2 = 0;
         for(String marca : valuesOfSprinnerIdioma){
-            if(marca.equalsIgnoreCase(String.valueOf(teclado.getMarca()))){
+            if(marca.equalsIgnoreCase(String.valueOf(teclado.getIdioma()))){
                 break;
             }
-            position++;
+            position2++;
         }
 
         valores2.add(valuesOfSprinnerIdioma.get(position2));
 
         for(String m : valuesOfSprinnerIdioma){
-            if(!m.equalsIgnoreCase(String.valueOf(teclado.getMarca()))){
+            if(!m.equalsIgnoreCase(String.valueOf(teclado.getIdioma()))){
                 valores2.add(m);
             }
         }
+        Log.d("msg",valores2.get(0));
         ArrayAdapter<String> arrayAdapter2 = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item,valores2);
         Spinner spinner2 = findViewById(R.id.spinneridiomaTecladoACT);
         spinner2.setAdapter(arrayAdapter2);
@@ -190,7 +192,7 @@ public class Teclado_actualizar_activity extends AppCompatActivity {
                     int coincidencias = 1;
                     int lugarTeclado = 0;
                     for(Object objetito : maquinas.getListaEquipos()){
-                        if(objetito.getClass() == Computadora.class){
+                        if(objetito.getClass() == Teclado.class){
                             if(coincidencias == (ubicacion+1)){
                                 break;
                             }

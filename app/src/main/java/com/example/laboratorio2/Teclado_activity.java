@@ -70,6 +70,7 @@ public class Teclado_activity extends AppCompatActivity {
                         intent1.putExtra("teclado",teclado);
                         intent1.putExtra("posicion",position);
                         intent1.putExtra("listaTeclado",lista);
+                        startActivity(intent1);
                     }
                 });
             }

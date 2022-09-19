@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ArrayAdapter;
@@ -82,20 +83,27 @@ public class Teclado_activity_agregar extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        Teclado teclado1 = new Teclado();
         if (item.getItemId() == R.id.check_agregar){
             TextView editTextActivo = findViewById(R.id.actionTeclado);
-            teclado.setActivo(editTextActivo.getText().toString());
+            String activo = editTextActivo.getText().toString();
+            teclado1.setActivo(activo);
             TextView editTextAnho = findViewById(R.id.anhoTeclado);
-            teclado.setAnho(editTextAnho.getText().toString());
+            String anho = editTextAnho.getText().toString();
+            teclado1.setAnho(anho);
             TextView editTextModelo = findViewById(R.id.mdeloTeclado);
-            teclado.setModelo(editTextModelo.getText().toString());
+            String modelo = editTextModelo.getText().toString();
+            teclado1.setModelo(modelo);
             Spinner computadorSpinner = findViewById(R.id.teclado_PC_agregar);
-            teclado.setPC(computadorSpinner.getSelectedItem().toString());
+            String PC = computadorSpinner.getSelectedItem().toString();
+            teclado1.setPC(PC);
             Spinner idiomaSprinner = findViewById(R.id.teclado_Idioma_agregar);
-            teclado.setIdioma(idiomaSprinner.getSelectedItem().toString());
+            String idioma = idiomaSprinner.getSelectedItem().toString();
+            teclado1.setIdioma(idioma);
             Spinner spinner = findViewById(R.id.teclado_Marca_agregar);
-            teclado.setMarca(spinner.getSelectedItem().toString());
-            maquinas.getListaEquipos().add(teclado);
+            String marca = spinner.getSelectedItem().toString();
+            teclado1.setMarca(marca);
+            maquinas.getListaEquipos().add(teclado1);
             Intent intent1 = new Intent(Teclado_activity_agregar.this,Teclado_activity.class);
             intent1.putExtra("lista",maquinas);
             startActivity(intent1);
